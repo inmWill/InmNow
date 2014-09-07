@@ -55,30 +55,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IAbstractRepository.cs" />
+    <Compile Include="Interfaces\IInmAbstractRepository.cs" />
     <Compile Include="Interfaces\ICreateRepository.cs" />
     <Compile Include="Interfaces\IDeleteRepository.cs" />
     <Compile Include="Interfaces\IReadRepository.cs" />
     <Compile Include="Interfaces\IUpdateRepository.cs" />
-    <Compile Include="Models\Abstract.cs" />
-    <Compile Include="Models\AbstractOption.cs" />
-    <Compile Include="Models\AbstractUser.cs" />
     <Compile Include="Models\Affiliation.cs" />
-    <Compile Include="Models\AspNetRole.cs" />
-    <Compile Include="Models\AspNetUser.cs" />
-    <Compile Include="Models\AspNetUserClaim.cs" />
-    <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\InmAbstract.cs" />
+    <Compile Include="Models\InmAbstractAuthor.cs" />
+    <Compile Include="Models\InmAbstractOption.cs" />
     <Compile Include="Models\InmergeNowContext.cs" />
-    <Compile Include="Models\Mapping\AbstractMap.cs" />
-    <Compile Include="Models\Mapping\AbstractOptionMap.cs" />
-    <Compile Include="Models\Mapping\AbstractUserMap.cs" />
     <Compile Include="Models\Mapping\AffiliationMap.cs" />
-    <Compile Include="Models\Mapping\AspNetRoleMap.cs" />
-    <Compile Include="Models\Mapping\AspNetUserClaimMap.cs" />
-    <Compile Include="Models\Mapping\AspNetUserLoginMap.cs" />
-    <Compile Include="Models\Mapping\AspNetUserMap.cs" />
     <Compile Include="Models\Mapping\ClientMap.cs" />
+    <Compile Include="Models\Mapping\InmAbstractAuthorMap.cs" />
+    <Compile Include="Models\Mapping\InmAbstractMap.cs" />
+    <Compile Include="Models\Mapping\InmAbstractOptionMap.cs" />
     <Compile Include="Models\Mapping\MeetingMap.cs" />
     <Compile Include="Models\Mapping\OptionMap.cs" />
     <Compile Include="Models\Mapping\SessionMap.cs" />
@@ -88,7 +80,7 @@
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AbstractRepository.cs" />
+    <Compile Include="Repositories\InmAbstractRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

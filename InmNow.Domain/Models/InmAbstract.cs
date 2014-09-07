@@ -1,21 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InmNow.Domain.Models
 {
-    public class Abstract
+    public class InmAbstract
     {
-        public Abstract()
-        {
-            this.AbstractOptions = new List<AbstractOption>();
-            this.AbstractUsers = new List<AbstractUser>();
-            this.Sessions = new List<Session>();
-        }
-
-        public int AbstractId { get; set; }
+        public int InmAbstractId { get; set; }
         public int Lognumber { get; set; }
         public bool IsLocked { get; set; }
         public int ActiveUserId { get; set; }
@@ -36,13 +26,5 @@ namespace InmNow.Domain.Models
         public System.DateTime ModifiedDate { get; set; }
         public string UserId { get; set; }
         public int? SessionId { get; set; }
-        public int? Session_SessionId { get; set; }
-        public int? Session_SessionId1 { get; set; }
-        public virtual ICollection<AbstractOption> AbstractOptions { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Session Session { get; set; }
-        public virtual Session Session1 { get; set; }
-        public virtual ICollection<AbstractUser> AbstractUsers { get; set; }
-        public virtual ICollection<Session> Sessions { get; set; }
     }
 }

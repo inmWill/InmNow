@@ -5,21 +5,10 @@ namespace InmNow.Repository.Models
 {
     public partial class Option
     {
-        public Option()
-        {
-            this.AbstractOptions = new List<AbstractOption>();
-            this.Options1 = new List<Option>();
-        }
-
         public int OptionId { get; set; }
         public string Question { get; set; }
         public int Type { get; set; }
         public string QuestionDescription { get; set; }
         public int MeetingId { get; set; }
-        public Nullable<int> Option_OptionId { get; set; }
-        public virtual ICollection<AbstractOption> AbstractOptions { get; set; }
-        public virtual Meeting Meeting { get; set; }
-        public virtual ICollection<Option> Options1 { get; set; }
-        public virtual Option Option1 { get; set; }
     }
 }

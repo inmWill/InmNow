@@ -3,12 +3,12 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace InmNow.Repository.Models.Mapping
 {
-    public class AbstractMap : EntityTypeConfiguration<Abstract>
+    public class InmAbstractMap : EntityTypeConfiguration<InmAbstract>
     {
-        public AbstractMap()
+        public InmAbstractMap()
         {
             // Primary Key
-            this.HasKey(t => t.AbstractId);
+            this.HasKey(t => t.InmAbstractId);
 
             // Properties
             this.Property(t => t.Title)
@@ -21,8 +21,8 @@ namespace InmNow.Repository.Models.Mapping
                 .HasMaxLength(128);
 
             // Table & Column Mappings
-            this.ToTable("Abstracts");
-            this.Property(t => t.AbstractId).HasColumnName("AbstractId");
+            this.ToTable("InmAbstract");
+            this.Property(t => t.InmAbstractId).HasColumnName("InmAbstractId");
             this.Property(t => t.Lognumber).HasColumnName("Lognumber");
             this.Property(t => t.IsLocked).HasColumnName("IsLocked");
             this.Property(t => t.ActiveUserId).HasColumnName("ActiveUserId");
@@ -43,20 +43,6 @@ namespace InmNow.Repository.Models.Mapping
             this.Property(t => t.ModifiedDate).HasColumnName("ModifiedDate");
             this.Property(t => t.UserId).HasColumnName("UserId");
             this.Property(t => t.SessionId).HasColumnName("SessionId");
-            this.Property(t => t.Session_SessionId).HasColumnName("Session_SessionId");
-            this.Property(t => t.Session_SessionId1).HasColumnName("Session_SessionId1");
-
-            // Relationships
-            this.HasOptional(t => t.AspNetUser)
-                .WithMany(t => t.Abstracts)
-                .HasForeignKey(d => d.UserId);
-            this.HasOptional(t => t.Session)
-                .WithMany(t => t.Abstracts)
-                .HasForeignKey(d => d.Session_SessionId);
-            this.HasOptional(t => t.Session1)
-                .WithMany(t => t.Abstracts1)
-                .HasForeignKey(d => d.Session_SessionId1);
-
         }
     }
 }

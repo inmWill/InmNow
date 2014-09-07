@@ -18,7 +18,7 @@ namespace InmNow.Repository.Models.Mapping
                 .IsRequired();
 
             // Table & Column Mappings
-            this.ToTable("Sessions");
+            this.ToTable("Session");
             this.Property(t => t.SessionId).HasColumnName("SessionId");
             this.Property(t => t.Phase).HasColumnName("Phase");
             this.Property(t => t.Code).HasColumnName("Code");
@@ -29,16 +29,6 @@ namespace InmNow.Repository.Models.Mapping
             this.Property(t => t.StartDate).HasColumnName("StartDate");
             this.Property(t => t.EndDate).HasColumnName("EndDate");
             this.Property(t => t.TrackId).HasColumnName("TrackId");
-            this.Property(t => t.Abstract_AbstractId).HasColumnName("Abstract_AbstractId");
-
-            // Relationships
-            this.HasOptional(t => t.Abstract)
-                .WithMany(t => t.Sessions)
-                .HasForeignKey(d => d.Abstract_AbstractId);
-            this.HasRequired(t => t.Track)
-                .WithMany(t => t.Sessions)
-                .HasForeignKey(d => d.TrackId);
-
         }
     }
 }

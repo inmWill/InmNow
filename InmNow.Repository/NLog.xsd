@@ -180,11 +180,11 @@
       <xs:pattern value="(|([a-zA-Z][a-zA-Z0-9_\-]*))(,([a-zA-Z][a-zA-Z0-9_\-]*))*" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="Target" abstract="true"></xs:complexType>
+  <xs:complexType name="Target" InmAbstract="true"></xs:complexType>
   <xs:complexType name="TargetRef">
     <xs:attribute name="name" type="xs:string" use="required" />
   </xs:complexType>
-  <xs:complexType name="WrapperTargetBase" abstract="true">
+  <xs:complexType name="WrapperTargetBase" InmAbstract="true">
     <xs:complexContent>
       <xs:extension base="Target">
         <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -198,7 +198,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="CompoundTargetBase" abstract="true">
+  <xs:complexType name="CompoundTargetBase" InmAbstract="true">
     <xs:complexContent>
       <xs:extension base="Target">
         <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -213,7 +213,7 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Layout"></xs:complexType>
-  <xs:complexType name="Filter" abstract="true"></xs:complexType>
+  <xs:complexType name="Filter" InmAbstract="true"></xs:complexType>
   <xs:simpleType name="SimpleLayoutAttribute">
     <xs:restriction base="xs:string">
       <xs:pattern value=".*" />

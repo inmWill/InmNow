@@ -59,9 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collectives\AbstactsCollective.cs" />
+    <Compile Include="Collectives\InmAbstactsCollective.cs" />
     <Compile Include="Factories\AbstractsFactory.cs" />
-    <Compile Include="Interfaces\IAbstractsCollective.cs" />
+    <Compile Include="Interfaces\IInmAbstractsCollective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

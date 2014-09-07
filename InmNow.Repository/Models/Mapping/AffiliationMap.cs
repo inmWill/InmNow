@@ -11,24 +11,18 @@ namespace InmNow.Repository.Models.Mapping
             this.HasKey(t => t.AffiliationId);
 
             // Properties
-            this.Property(t => t.User_Id)
+            this.Property(t => t.UserId)
                 .HasMaxLength(128);
 
             // Table & Column Mappings
-            this.ToTable("Affiliations");
+            this.ToTable("Affiliation");
             this.Property(t => t.AffiliationId).HasColumnName("AffiliationId");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Type).HasColumnName("Type");
             this.Property(t => t.Address).HasColumnName("Address");
             this.Property(t => t.Country).HasColumnName("Country");
             this.Property(t => t.Website).HasColumnName("Website");
-            this.Property(t => t.User_Id).HasColumnName("User_Id");
-
-            // Relationships
-            this.HasOptional(t => t.AspNetUser)
-                .WithMany(t => t.Affiliations)
-                .HasForeignKey(d => d.User_Id);
-
+            this.Property(t => t.UserId).HasColumnName("UserId");
         }
     }
 }

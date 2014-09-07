@@ -42,14 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Abstract.cs" />
-    <Compile Include="Models\AbstractOption.cs" />
-    <Compile Include="Models\AbstractUser.cs" />
     <Compile Include="Models\Affiliation.cs" />
-    <Compile Include="Models\AspNetRole.cs" />
-    <Compile Include="Models\AspNetUser.cs" />
-    <Compile Include="Models\AspNetUserClaim.cs" />
-    <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\InmAbstract.cs" />
+    <Compile Include="Models\InmAbstractAuthor.cs" />
+    <Compile Include="Models\InmAbstractOption.cs" />
     <Compile Include="Models\Meeting.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\Session.cs" />

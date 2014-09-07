@@ -25,7 +25,7 @@ namespace InmNow.WebAPI
             var container = new UnityContainer();
          
             // Business layer collectives 
-            container.RegisterType<IAbstractsCollective, AbstactsCollective>(new HierarchicalLifetimeManager());
+            container.RegisterType<IInmAbstractsCollective, InmAbstractsCollective>(new HierarchicalLifetimeManager());
             
             config.DependencyResolver = new UnityResolver(container);
 

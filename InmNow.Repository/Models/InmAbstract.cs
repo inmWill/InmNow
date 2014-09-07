@@ -3,16 +3,9 @@ using System.Collections.Generic;
 
 namespace InmNow.Repository.Models
 {
-    public partial class Abstract
+    public partial class InmAbstract
     {
-        public Abstract()
-        {
-            this.AbstractOptions = new List<AbstractOption>();
-            this.AbstractUsers = new List<AbstractUser>();
-            this.Sessions = new List<Session>();
-        }
-
-        public int AbstractId { get; set; }
+        public int InmAbstractId { get; set; }
         public int Lognumber { get; set; }
         public bool IsLocked { get; set; }
         public int ActiveUserId { get; set; }
@@ -32,14 +25,6 @@ namespace InmNow.Repository.Models
         public int LastUpdatedUserId { get; set; }
         public System.DateTime ModifiedDate { get; set; }
         public string UserId { get; set; }
-        public Nullable<int> SessionId { get; set; }
-        public Nullable<int> Session_SessionId { get; set; }
-        public Nullable<int> Session_SessionId1 { get; set; }
-        public virtual ICollection<AbstractOption> AbstractOptions { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Session Session { get; set; }
-        public virtual Session Session1 { get; set; }
-        public virtual ICollection<AbstractUser> AbstractUsers { get; set; }
-        public virtual ICollection<Session> Sessions { get; set; }
+        public int? SessionId { get; set; }
     }
 }

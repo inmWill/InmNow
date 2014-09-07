@@ -12,11 +12,11 @@ using NLog;
 
 namespace InmNow.WebAPI.Controllers
 {   
-    public class AbstractsController : ApiController
+    public class InmAbstractsController : ApiController
     {
-        readonly IAbstractsCollective _abstractsCollective;
+        readonly IInmAbstractsCollective _abstractsCollective;
 
-        public AbstractsController(IAbstractsCollective abstractsCollective)
+        public InmAbstractsController(IInmAbstractsCollective abstractsCollective)
         {
             _abstractsCollective = abstractsCollective;
         }
@@ -28,19 +28,19 @@ namespace InmNow.WebAPI.Controllers
         //}
 
         // GET api/clientetlsettings/Get/5
-        public Abstract GetAbstractById(int abstractId)
+        public InmAbstract GetAbstractById(int abstractId)
         {
             return _abstractsCollective.GetAbstractById(abstractId);
         }
 
         // POST api/clientetlsettings/Post
-        public Abstract InsertAbstract([FromBody]Abstract value)
+        public InmAbstract InsertAbstract([FromBody]InmAbstract value)
         {
             return _abstractsCollective.CreateAbstract(value);
         }
 
         // PUT api/clientetlsettings/Put
-        public Abstract Put([FromBody]Abstract value)
+        public InmAbstract Put([FromBody]InmAbstract value)
         {
             return _abstractsCollective.UpsertAbstract(value);
             // return _clientETLSettingsRepository.Update(value);

@@ -12,22 +12,22 @@ using NLog;
 namespace InmNow.Logic.Collectives
 {
 
-    public class AbstactsCollective : IAbstractsCollective
+    public class InmAbstractsCollective : IInmAbstractsCollective
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        public AbstractRepository AbstractRepository;
+        public InmAbstractRepository InmAbstractRepository;
 
-        public AbstactsCollective()
+        public InmAbstractsCollective()
         {
-            AbstractRepository = new AbstractRepository();
+            InmAbstractRepository = new InmAbstractRepository();
         }
 
-        public IQueryable<Abstract> GetAllAbstractsForSession(int sessionId)
+        public IQueryable<InmAbstract> GetAllAbstractsForSession(int sessionId)
         {
             try
             {
-                return AbstractRepository.FindAll(a => a.SessionId == sessionId);
+                return InmAbstractRepository.FindAll(a => a.SessionId == sessionId);
             }
             catch (Exception ex)
             {
@@ -36,11 +36,11 @@ namespace InmNow.Logic.Collectives
             }
         }
 
-        public Abstract GetAbstractById(int abstractId)
+        public InmAbstract GetAbstractById(int abstractId)
         {
             try
             {
-                return AbstractRepository.FindOne(a => a.AbstractId == abstractId);
+                return InmAbstractRepository.FindOne(a => a.InmAbstractId == abstractId);
             }
             catch (Exception ex)
             {
@@ -49,11 +49,11 @@ namespace InmNow.Logic.Collectives
             }
         }
 
-        public Abstract GetAbstractByLognumber(int lognumber)
+        public InmAbstract GetAbstractByLognumber(int lognumber)
         {
             try
             {
-                return AbstractRepository.FindOne(a => a.Lognumber == lognumber);
+                return InmAbstractRepository.FindOne(a => a.Lognumber == lognumber);
             }
             catch (Exception ex)
             {
@@ -62,11 +62,11 @@ namespace InmNow.Logic.Collectives
             }
         }
 
-        public Abstract CreateAbstract(Abstract newAbstract)
+        public InmAbstract CreateAbstract(InmAbstract newAbstract)
         {
             try
             {
-                return AbstractRepository.Create(newAbstract);
+                return InmAbstractRepository.Create(newAbstract);
                 
             }
             catch (Exception ex)
@@ -77,15 +77,15 @@ namespace InmNow.Logic.Collectives
 
         }
 
-        public Abstract UpsertAbstract(Abstract abstractUpdate)
+        public InmAbstract UpsertAbstract(InmAbstract abstractUpdate)
         {
             try
             {
-                var exists = AbstractRepository.Get(abstractUpdate.Lognumber);
+                var exists = InmAbstractRepository.Get(abstractUpdate.Lognumber);
                 if (exists == null)
-                    AbstractRepository.Create(abstractUpdate);
+                    InmAbstractRepository.Create(abstractUpdate);
                 else
-                    AbstractRepository.Update(abstractUpdate);
+                    InmAbstractRepository.Update(abstractUpdate);
 
                 return abstractUpdate;
             }

@@ -14,8 +14,11 @@ namespace InmNow.Repository.Models.Mapping
             this.Property(t => t.Title)
                 .IsRequired();
 
+            this.Property(t => t.UserId)
+                .HasMaxLength(128);
+
             // Table & Column Mappings
-            this.ToTable("Meetings");
+            this.ToTable("Meeting");
             this.Property(t => t.MeetingId).HasColumnName("MeetingId");
             this.Property(t => t.Title).HasColumnName("Title");
             this.Property(t => t.Location).HasColumnName("Location");
@@ -25,6 +28,7 @@ namespace InmNow.Repository.Models.Mapping
             this.Property(t => t.SupportEmail).HasColumnName("SupportEmail");
             this.Property(t => t.StartDate).HasColumnName("StartDate");
             this.Property(t => t.EndDate).HasColumnName("EndDate");
+            this.Property(t => t.UserId).HasColumnName("UserId");
         }
     }
 }
