@@ -24,6 +24,7 @@ namespace InmNow.Repository.Models
         public DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public DbSet<AspNetUser> AspNetUsers { get; set; }
+        public DbSet<Client> Clients { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<Session> Sessions { get; set; }
@@ -39,6 +40,7 @@ namespace InmNow.Repository.Models
             modelBuilder.Configurations.Add(new AspNetUserClaimMap());
             modelBuilder.Configurations.Add(new AspNetUserLoginMap());
             modelBuilder.Configurations.Add(new AspNetUserMap());
+            modelBuilder.Configurations.Add(new ClientMap());
             modelBuilder.Configurations.Add(new MeetingMap());
             modelBuilder.Configurations.Add(new OptionMap());
             modelBuilder.Configurations.Add(new SessionMap());

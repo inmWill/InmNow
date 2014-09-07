@@ -68,6 +68,7 @@
     <Compile Include="Models\AspNetUser.cs" />
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\InmergeNowContext.cs" />
     <Compile Include="Models\Mapping\AbstractMap.cs" />
     <Compile Include="Models\Mapping\AbstractOptionMap.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Models\Mapping\AspNetUserClaimMap.cs" />
     <Compile Include="Models\Mapping\AspNetUserLoginMap.cs" />
     <Compile Include="Models\Mapping\AspNetUserMap.cs" />
+    <Compile Include="Models\Mapping\ClientMap.cs" />
     <Compile Include="Models\Mapping\MeetingMap.cs" />
     <Compile Include="Models\Mapping\OptionMap.cs" />
     <Compile Include="Models\Mapping\SessionMap.cs" />
