@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InmNow.Repository", "InmNow
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InmNow.WebAPI", "InmNow.WebAPI\InmNow.WebAPI.csproj", "{18A5628C-77A8-4072-BF63-E0EDA02D3C27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InmNow.Utils", "InmNow.Utils\InmNow.Utils.csproj", "{F9B09B47-FC82-4F51-8A6D-BE5723D01E4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{18A5628C-77A8-4072-BF63-E0EDA02D3C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18A5628C-77A8-4072-BF63-E0EDA02D3C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18A5628C-77A8-4072-BF63-E0EDA02D3C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B09B47-FC82-4F51-8A6D-BE5723D01E4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B09B47-FC82-4F51-8A6D-BE5723D01E4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B09B47-FC82-4F51-8A6D-BE5723D01E4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B09B47-FC82-4F51-8A6D-BE5723D01E4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
