@@ -29,7 +29,7 @@ namespace InmNow.WebAPI
             
             config.DependencyResolver = new UnityResolver(container);
 
-            // Web API routes
+            
             config.MapHttpAttributeRoutes();
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
@@ -37,10 +37,10 @@ namespace InmNow.WebAPI
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
-
+// Web API routes
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",//Added the action parameter to the route url
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
