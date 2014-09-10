@@ -12,6 +12,7 @@ namespace InmNow.API
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            AutoMapperWebConfiguration.Configure();
         }
     }
 }

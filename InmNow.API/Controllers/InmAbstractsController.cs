@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.WebSockets;
+using InmNow.API.ActionResults;
+using InmNow.API.ViewModels;
 using InmNow.Domain.Models;
 using InmNow.Logic.Collectives;
 using InmNow.Logic.Interfaces;
@@ -23,11 +25,27 @@ namespace InmNow.API.Controllers
             _abstractsCollective = abstractsCollective;
         }
 
+        protected ViewModelActionResult BuildViewModel<TDestination>(object domainModel, HttpRequestMessage request)
+        {
+            return new ViewModelActionResult(domainModel.GetType(), typeof(TDestination), domainModel, request);
+        }
+
         // GET api/clientetlsettings
-        //public IEnumerable<ClientETLSettings> Get()
-        //{
-        //    return _clientETLSettingsRepository.GetAll();
-        //}
+        public IHttpActionResult GetAbstractByIdAsViewModel(int abstractId)
+        {
+            Logger.Info("Trying to retrieve Abstract");
+            try
+            {
+                var abstractModel = _abstractsCollective.GetAbstractById(abstractId);
+                return BuildViewModel<InmAbstractsViewModel>(abstractModel, Request);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error retrieveing abstract: {0}", ex.Message);
+                return null;
+            }
+
+        }
 
         // GET api/clientetlsettings/Get/5
         public InmAbstract GetAbstractById(int abstractId)

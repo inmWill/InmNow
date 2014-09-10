@@ -11,6 +11,7 @@ namespace InmNow.Utils.AutoMapper
     {
         public abstract void InitMapper();
 
+
         public static IMappingExpression<TSource, TDestination> CreateMap<TSource, TDestination>()
         {
             var configHelper = new ConfigHelper();
