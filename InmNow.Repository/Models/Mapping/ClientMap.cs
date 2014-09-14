@@ -11,9 +11,6 @@ namespace InmNow.Repository.Models.Mapping
             this.HasKey(t => t.ClientId);
 
             // Properties
-            this.Property(t => t.ClientId)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
             this.Property(t => t.Name)
                 .HasMaxLength(150);
 

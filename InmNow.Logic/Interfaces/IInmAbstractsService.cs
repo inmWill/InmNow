@@ -1,8 +1,8 @@
 ﻿using InmNow.Domain.Models;
 
-namespace InmNow.Logic.Interfaces
+namespace InmNow.Service.Interfaces
 {
-    public interface IInmAbstractsCollective
+    public interface IInmAbstractsService
     {
         InmAbstract GetAbstractById(int abstractId);
         InmAbstract GetAbstractByLognumber(int lognumber);

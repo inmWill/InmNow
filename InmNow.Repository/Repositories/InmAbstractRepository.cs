@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using InmNow.Repository.DbContexts;
 using InmNow.Repository.Interfaces;
-using InmNow.Domain.Models;
 using InmNow.Repository.Models;
 using InmNow.Utils.AutoMapper;
 
@@ -15,7 +12,7 @@ namespace InmNow.Repository.Repositories
 {
     public class InmAbstractRepository : IInmAbstractRepository
     {
-        
+
         InmergeNowContext Context { get; set; }
 
         public InmAbstractRepository()

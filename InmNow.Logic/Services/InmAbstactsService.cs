@@ -1,24 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InmNow.Logic.Interfaces;
 using InmNow.Domain.Models;
 using InmNow.Repository.Repositories;
+using InmNow.Service.Interfaces;
 using NLog;
 
 
-namespace InmNow.Logic.Collectives
+namespace InmNow.Service.Services
 {
 
-    public class InmAbstractsCollective : IInmAbstractsCollective
+    public class InmAbstractsService : IInmAbstractsService
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public InmAbstractRepository InmAbstractRepository;
 
-        public InmAbstractsCollective()
+        public InmAbstractsService()
         {
             InmAbstractRepository = new InmAbstractRepository();
         }

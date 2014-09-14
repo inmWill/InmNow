@@ -114,12 +114,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionResults\ViewModelActionResults.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\InmNotifyController.cs" />
     <Compile Include="Controllers\InmAbstractsController.cs" />
     <Compile Include="Factories\ViewModelFactory.cs" />
     <Compile Include="Global.asax.cs">
@@ -154,17 +157,17 @@
       <Project>{9dc291b5-77e8-4e76-8620-dc499dfbe660}</Project>
       <Name>InmNow.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InmNow.Logic\InmNow.Logic.csproj">
+    <ProjectReference Include="..\InmNow.Logic\InmNow.Service.csproj">
       <Project>{e70c60ca-c46e-45e6-8040-bc580ae94e07}</Project>
-      <Name>InmNow.Logic</Name>
+      <Name>InmNow.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\InmNow.Repository\InmNow.Repository.csproj">
       <Project>{c0a3a00d-3a18-4e35-9395-2271f49b280b}</Project>
       <Name>InmNow.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InmNow.Utils\InmNow.Utils.csproj">
+    <ProjectReference Include="..\InmNow.Utils\InmNow.Utils.Automapper.csproj">
       <Project>{f9b09b47-fc82-4f51-8a6d-be5723d01e4f}</Project>
-      <Name>InmNow.Utils</Name>
+      <Name>InmNow.Utils.Automapper</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

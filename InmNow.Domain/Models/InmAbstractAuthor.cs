@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace InmNow.Domain.Models
 {
     public class InmAbstractAuthor
@@ -13,7 +10,7 @@ namespace InmNow.Domain.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public int InmAbstractId { get; set; }
+        public int InmAbstract_Id { get; set; }
         public string UserId { get; set; }
     }
 }

@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbContexts\BaseContext.cs" />
+    <Compile Include="Enums\UserType.cs" />
     <Compile Include="Interfaces\IInmAbstractRepository.cs" />
     <Compile Include="Interfaces\ICreateRepository.cs" />
     <Compile Include="Interfaces\IDeleteRepository.cs" />
@@ -64,14 +66,21 @@
     <Compile Include="Migrations\201409090323392_InitialCreate.Designer.cs">
       <DependentUpon>201409090323392_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409120148304_AddAuthorTable.cs" />
+    <Compile Include="Migrations\201409120148304_AddAuthorTable.Designer.cs">
+      <DependentUpon>201409120148304_AddAuthorTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Affiliation.cs" />
+    <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\InmAbstract.cs" />
     <Compile Include="Models\InmAbstractAuthor.cs" />
     <Compile Include="Models\InmAbstractOption.cs" />
-    <Compile Include="Models\InmergeNowContext.cs" />
+    <Compile Include="DbContexts\InmergeNowContext.cs" />
     <Compile Include="Models\Mapping\AffiliationMap.cs" />
+    <Compile Include="Models\Mapping\AuthorMap.cs" />
     <Compile Include="Models\Mapping\ClientMap.cs" />
     <Compile Include="Models\Mapping\InmAbstractAuthorMap.cs" />
     <Compile Include="Models\Mapping\InmAbstractMap.cs" />
@@ -102,14 +111,17 @@
       <Project>{9dc291b5-77e8-4e76-8620-dc499dfbe660}</Project>
       <Name>InmNow.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InmNow.Utils\InmNow.Utils.csproj">
+    <ProjectReference Include="..\InmNow.Utils\InmNow.Utils.Automapper.csproj">
       <Project>{f9b09b47-fc82-4f51-8a6d-be5723d01e4f}</Project>
-      <Name>InmNow.Utils</Name>
+      <Name>InmNow.Utils.Automapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201409090323392_InitialCreate.resx">
       <DependentUpon>201409090323392_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409120148304_AddAuthorTable.resx">
+      <DependentUpon>201409120148304_AddAuthorTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

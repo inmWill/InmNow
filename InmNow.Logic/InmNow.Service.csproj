@@ -7,8 +7,8 @@
     <ProjectGuid>{E70C60CA-C46E-45E6-8040-BC580AE94E07}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InmNow.Logic</RootNamespace>
-    <AssemblyName>InmNow.Logic</AssemblyName>
+    <RootNamespace>InmNow.Service</RootNamespace>
+    <AssemblyName>InmNow.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -59,10 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collectives\InmAbstactsCollective.cs" />
+    <Compile Include="Services\InmAbstactsService.cs" />
     <Compile Include="Factories\AbstractsFactory.cs" />
-    <Compile Include="Interfaces\IInmAbstractsCollective.cs" />
+    <Compile Include="Interfaces\IInmAbstractsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\IUserNotificationService.cs" />
+    <Compile Include="Services\UserNotificationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
@@ -77,6 +79,10 @@
     <ProjectReference Include="..\InmNow.Domain\InmNow.Domain.csproj">
       <Project>{9dc291b5-77e8-4e76-8620-dc499dfbe660}</Project>
       <Name>InmNow.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InmNow.Notifications\InmNow.Email.csproj">
+      <Project>{3db56c19-7b90-49f1-a810-7fdb22bc849b}</Project>
+      <Name>InmNow.Email</Name>
     </ProjectReference>
     <ProjectReference Include="..\InmNow.Repository\InmNow.Repository.csproj">
       <Project>{c0a3a00d-3a18-4e35-9395-2271f49b280b}</Project>

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace InmNow.Repository.Models
 {
     public partial class InmAbstractAuthor

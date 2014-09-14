@@ -1,43 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.WebSockets;
-using InmNow.API.ActionResults;
 using InmNow.API.ViewModels;
 using InmNow.Domain.Models;
-using InmNow.Logic.Collectives;
-using InmNow.Logic.Interfaces;
-using InmNow.Repository;
+using InmNow.Service.Interfaces;
 using NLog;
 
 namespace InmNow.API.Controllers
 {   
-    public class InmAbstractsController : ApiController
+    public class InmAbstractsController : BaseController
     {
-        readonly IInmAbstractsCollective _abstractsCollective;
+        readonly IInmAbstractsService _abstractsService;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        public InmAbstractsController(IInmAbstractsCollective abstractsCollective)
+        public InmAbstractsController(IInmAbstractsService abstractsService)
         {
-            _abstractsCollective = abstractsCollective;
+            _abstractsService = abstractsService;
         }
-
-        protected ViewModelActionResult BuildViewModel<TDestination>(object domainModel, HttpRequestMessage request)
-        {
-            return new ViewModelActionResult(domainModel.GetType(), typeof(TDestination), domainModel, request);
-        }
-
         // GET api/clientetlsettings
         public IHttpActionResult GetAbstractByIdAsViewModel(int abstractId)
         {
-            Logger.Info("Trying to retrieve Abstract");
             try
             {
-                var abstractModel = _abstractsCollective.GetAbstractById(abstractId);
-                return BuildViewModel<InmAbstractsViewModel>(abstractModel, Request);
+                var abstractModel = _abstractsService.GetAbstractById(abstractId);
+                return BuildViewModel<InmAbstractsViewModel>(Request, abstractModel);
             }
             catch (Exception ex)
             {
@@ -50,10 +36,9 @@ namespace InmNow.API.Controllers
         // GET api/clientetlsettings/Get/5
         public InmAbstract GetAbstractById(int abstractId)
         {
-            Logger.Info("Trying to retrieve Abstract");
             try
             {
-                return _abstractsCollective.GetAbstractById(abstractId);
+                return _abstractsService.GetAbstractById(abstractId);
             }
             catch (Exception ex)
             {
@@ -65,20 +50,20 @@ namespace InmNow.API.Controllers
         // POST api/clientetlsettings/Post
         public InmAbstract InsertAbstract([FromBody]InmAbstract value)
         {
-            return _abstractsCollective.CreateAbstract(value);
+            return _abstractsService.CreateAbstract(value);
         }
 
         // PUT api/clientetlsettings/Put
         public InmAbstract Put([FromBody]InmAbstract value)
         {
-            return _abstractsCollective.UpsertAbstract(value);
+            return _abstractsService.UpsertAbstract(value);
             // return _clientETLSettingsRepository.Update(value);
         }
 
         // DELETE api/clientetlsettings/5
         //public bool Delete(ClientETLSettings value)
         //{
-        //   return _clientETLSettingsRepository.Delete(value);
+        //   return _abstractsService.Delete(value);
         //}
     }
 }

@@ -1,10 +1,6 @@
 ﻿using InmNow.API.ViewModels;
 using InmNow.Domain.Models;
 using InmNow.Utils.AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace InmNow.API
 {

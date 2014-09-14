@@ -1,22 +1,14 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using InmNow.Repository.Models;
 using InmNow.Repository.Models.Mapping;
 
-namespace InmNow.Repository.Models
+namespace InmNow.Repository.DbContexts
 {
-    public partial class InmergeNowContext : DbContext
+    public partial class InmergeNowContext : BaseContext<InmergeNowContext>
     {
-        static InmergeNowContext()
-        {
-            Database.SetInitializer<InmergeNowContext>(null);
-        }
-
-        public InmergeNowContext()
-            : base("Name=InmergeNowContext")
-        {
-        }
 
         public DbSet<Affiliation> Affiliations { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<InmAbstract> InmAbstracts { get; set; }
         public DbSet<InmAbstractAuthor> InmAbstractAuthors { get; set; }
@@ -29,6 +21,7 @@ namespace InmNow.Repository.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AffiliationMap());
+            modelBuilder.Configurations.Add(new AuthorMap());
             modelBuilder.Configurations.Add(new ClientMap());
             modelBuilder.Configurations.Add(new InmAbstractMap());
             modelBuilder.Configurations.Add(new InmAbstractAuthorMap());

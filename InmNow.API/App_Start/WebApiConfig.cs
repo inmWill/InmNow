@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Cors;
-using InmNow.Logic.Collectives;
+using InmNow.Service.Services;
 using Microsoft.Practices.Unity;
 using InmNow.API.Resolver;
-using InmNow.Logic.Interfaces;
+using InmNow.Service.Interfaces;
+using Newtonsoft.Json;
 
 namespace InmNow.API
 {
@@ -18,15 +16,16 @@ namespace InmNow.API
             var container = new UnityContainer();
 
             // Business layer collectives 
-            container.RegisterType<IInmAbstractsCollective, InmAbstractsCollective>(new HierarchicalLifetimeManager());
+            container.RegisterType<IInmAbstractsService, InmAbstractsService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUserNotificationService, UserNotificationServiceService>(new HierarchicalLifetimeManager());
 
             config.DependencyResolver = new UnityResolver(container);
 
 
             config.MapHttpAttributeRoutes();
             var json = config.Formatters.JsonFormatter;
-            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
-            json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            json.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
+            json.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);

@@ -15,7 +15,7 @@ namespace InmNow.API.Resolver
             {
                 throw new ArgumentNullException("container");
             }
-            this.Container = container;
+            Container = container;
         }
 
         public object GetService(Type serviceType)

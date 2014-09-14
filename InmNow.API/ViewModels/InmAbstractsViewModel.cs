@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace InmNow.API.ViewModels
 {
@@ -9,7 +6,7 @@ namespace InmNow.API.ViewModels
     {
         InmAbstractsViewModel()
         {
-            this.Proof = "I'm a view model!";
+            Proof = "I'm a view model!";
         }
 
         public int InmAbstractId { get; set; }
@@ -22,15 +19,15 @@ namespace InmNow.API.ViewModels
         public string Methods { get; set; }
         public string Results { get; set; }
         public string NovelAspect { get; set; }
-        public System.DateTime PresentationDate { get; set; }
-        public System.DateTime PublishDate { get; set; }
-        public System.DateTime SubmittedDate { get; set; }
+        public DateTime PresentationDate { get; set; }
+        public DateTime PublishDate { get; set; }
+        public DateTime SubmittedDate { get; set; }
         public int PreferredTrackType { get; set; }
         public string AssignedSlot { get; set; }
         public string UploadedFile { get; set; }
         public int UploadedFileStatus { get; set; }
         public int LastUpdatedUserId { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
         public string UserId { get; set; }
         public int? SessionId { get; set; }
         public string Proof { get; set; }
