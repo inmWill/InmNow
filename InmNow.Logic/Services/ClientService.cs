@@ -64,8 +64,10 @@ namespace InmNow.Service.Services
         {
             try
             {
+                newClient.AddedDate = DateTime.Now;
+                newClient.ModifiedDate = DateTime.Now;
                 return ClientRepository.Create(newClient);
-                
+
             }
             catch (Exception ex)
             {
@@ -81,9 +83,16 @@ namespace InmNow.Service.Services
             {
                 var exists = ClientRepository.Get(updateClient.ClientId);
                 if (exists == null)
+                {
+                    updateClient.AddedDate = DateTime.Now;
+                    updateClient.ModifiedDate = DateTime.Now;
                     ClientRepository.Create(updateClient);
+                }
                 else
+                {
+                    updateClient.ModifiedDate = DateTime.Now;
                     ClientRepository.Update(updateClient);
+                }
 
                 return updateClient;
             }
@@ -98,7 +107,7 @@ namespace InmNow.Service.Services
         {
             try
             {
-                return ClientRepository.Delete(deleteClient);               
+                return ClientRepository.Delete(deleteClient);
             }
             catch (Exception ex)
             {
