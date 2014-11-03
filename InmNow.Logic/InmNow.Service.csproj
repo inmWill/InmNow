@@ -59,6 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IClientService.cs" />
+    <Compile Include="Interfaces\IInmUserService.cs" />
+    <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\InmUserService .cs" />
     <Compile Include="Services\InmAbstactsService.cs" />
     <Compile Include="Factories\AbstractsFactory.cs" />
     <Compile Include="Interfaces\IInmAbstractsService.cs" />

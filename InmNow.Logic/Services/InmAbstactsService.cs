@@ -20,6 +20,19 @@ namespace InmNow.Service.Services
             InmAbstractRepository = new InmAbstractRepository();
         }
 
+        public IQueryable<InmAbstract> GetAll()
+        {
+            try
+            {
+                return InmAbstractRepository.FindAll();
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error Retrieving Sessions: {0}", ex.Message);
+                return null;
+            }
+        }
+
         public IQueryable<InmAbstract> GetAllAbstractsForSession(int sessionId)
         {
             try

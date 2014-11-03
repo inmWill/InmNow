@@ -9,6 +9,7 @@ using NLog;
 
 namespace InmNow.API.Controllers
 {   
+    [Authorize]
     public class InmNotifyController : BaseController
     {
         readonly IUserNotificationService _notifyService;
@@ -17,10 +18,21 @@ namespace InmNow.API.Controllers
         public InmNotifyController(IUserNotificationService notifyService)
         {
             _notifyService = notifyService;
-        }     
+        }
+
+
+        public IHttpActionResult GetAuthAccountInfo()
+        {
+            var isAuth = User.Identity.IsAuthenticated;
+            var userName = User.Identity.Name;
+
+            return Ok("Is user authorized: " + isAuth + " Name: " + userName);
+
+        }
+
 
         // GET api/clientetlsettings/Get/5
-        public IHttpActionResult GetSendSuccessEmail()
+        public IHttpActionResult SendSuccessEmail()
         {
             try
             {

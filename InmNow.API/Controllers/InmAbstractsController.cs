@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using InmNow.API.ViewModels;
@@ -7,17 +8,36 @@ using InmNow.Service.Interfaces;
 using NLog;
 
 namespace InmNow.API.Controllers
-{   
+{
     public class InmAbstractsController : BaseController
     {
-        readonly IInmAbstractsService _abstractsService;
+        private readonly IInmAbstractsService _abstractsService;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public InmAbstractsController(IInmAbstractsService abstractsService)
         {
             _abstractsService = abstractsService;
         }
+
         // GET api/clientetlsettings
+        [Authorize]
+        public IHttpActionResult GetAll()
+        {
+            try
+            {
+                var abstractModel = _abstractsService.GetAll();
+                return BuildViewModel<IQueryable<InmAbstractsViewModel>>(Request, abstractModel);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error retrieveing abstract: {0}", ex.Message);
+                return null;
+            }
+
+        }
+
+        // GET api/clientetlsettings
+        [Authorize]
         public IHttpActionResult GetAbstractByIdAsViewModel(int abstractId)
         {
             try
@@ -48,22 +68,17 @@ namespace InmNow.API.Controllers
         }
 
         // POST api/clientetlsettings/Post
-        public InmAbstract InsertAbstract([FromBody]InmAbstract value)
+        public InmAbstract InsertAbstract([FromBody] InmAbstract value)
         {
             return _abstractsService.CreateAbstract(value);
         }
 
         // PUT api/clientetlsettings/Put
-        public InmAbstract Put([FromBody]InmAbstract value)
+        public InmAbstract Put([FromBody] InmAbstract value)
         {
             return _abstractsService.UpsertAbstract(value);
             // return _clientETLSettingsRepository.Update(value);
         }
 
-        // DELETE api/clientetlsettings/5
-        //public bool Delete(ClientETLSettings value)
-        //{
-        //   return _abstractsService.Delete(value);
-        //}
     }
 }

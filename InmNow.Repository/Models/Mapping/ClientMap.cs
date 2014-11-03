@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using InmNow.Repository.Models.Survey;
 
 namespace InmNow.Repository.Models.Mapping
 {
@@ -20,7 +21,7 @@ namespace InmNow.Repository.Models.Mapping
             this.Property(t => t.Phone)
                 .HasMaxLength(50);
 
-            this.Property(t => t.URL)
+            this.Property(t => t.Website)
                 .HasMaxLength(150);
 
             // Table & Column Mappings
@@ -29,7 +30,7 @@ namespace InmNow.Repository.Models.Mapping
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Email).HasColumnName("Email");
             this.Property(t => t.Phone).HasColumnName("Phone");
-            this.Property(t => t.URL).HasColumnName("URL");
+            this.Property(t => t.Website).HasColumnName("Website");
         }
     }
 }

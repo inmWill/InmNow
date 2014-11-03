@@ -8,6 +8,5 @@ namespace InmNow.Domain.Models
         public string Address { get; set; }
         public string Country { get; set; }
         public string Website { get; set; }
-        public string UserId { get; set; }
     }
 }

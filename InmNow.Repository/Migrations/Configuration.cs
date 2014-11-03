@@ -1,4 +1,9 @@
+using System;
+using InmNow.Enums;
 using InmNow.Repository.DbContexts;
+using InmNow.Repository.Models;
+using InmNow.Repository.Models.Survey;
+using InmNow.Utils.Cryptography;
 
 namespace InmNow.Repository.Migrations
 {
@@ -18,6 +23,230 @@ namespace InmNow.Repository.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
+
+            //context.AuthorizedClients.AddOrUpdate(
+                
+            //    a=>a.Id,
+            //    new AuthorizedClient { Id = "inmShowApp", Name = "Inmerge Angular UI", Secret = HashHelper.GetHash("Q@#eszaw"), Active = true, 
+            //        AllowedOrigin = "http://localhost:55792", RefreshTokenLifeTime = 7200, ApplicationType = ApplicationTypes.JavaScript}
+                    
+            //        );
+
+            //context.Clients.AddOrUpdate(
+            //    c => c.Email,
+            //    new Client { Name = "Test Client 1", Description = "Test client 1 descripton", Contact="William Thomas", Email = "testclient1@inm.com", Phone = "(123) 456-789", Website = "testclient1.inm.com", Active = true},
+            //    new Client { Name = "Test Client 2", Description = "Test client 2 descripton", Contact = "Tom Thomas", Email = "testclient2@inm.com", Phone = "(321) 456-789", Website = "testclient2.inm.com", Active = true },
+            //    new Client { Name = "Test Client 3", Description = "Test client 3 descripton", Contact = "Carol Thomas", Email = "testclient3@inm.com", Phone = "(231) 456-789", Website = "testclient3.inm.com", Active = false }
+            //    );
+
+            //context.Affiliations.AddOrUpdate(
+            //    a => a.Name,
+            //    new Affiliation { Name = "Affiliation 1", Type = 1, Street = "Affiliation 1 address", Unit = "Unit 1", Region = "Region1", Postal = "87505", Country = "USA",  Website = "affiliation1.com" },
+            //    new Affiliation { Name = "Affiliation 2", Type = 2, Street = "Affiliation 2 address", Unit = "Unit 2", Region = "Region2", Postal = "80227", Country = "USA", Website = "affiliation2.com" },
+            //    new Affiliation { Name = "Affiliation 3", Type = 3, Street = "Affiliation 3 address", Unit = "Unit 3", Region = "Region3", Postal = "87144", Country = "USA", Website = "affiliation3.com" }
+            //    );
+
+            //context.Meetings.AddOrUpdate(
+            //    m => m.Title,
+            //    new Meeting
+            //    {
+            //        Title = "Inmerge Annual Conference",
+            //        Description = "A test conference",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-08"),
+            //        Contact = "William Thomas",
+            //        Location = "Broomfield",
+            //        OfficeEmail = "will.thomas@inmerge.com",
+            //        SupportEmail = "support@inmerge.com"
+
+            //    },
+            //    new Meeting
+            //    {
+            //        Title = "Willco Annual Conference",
+            //        Description = "A test conference",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-08"),
+            //        Contact = "William Thomas",
+            //        Location = "Lakewood",
+            //        OfficeEmail = "wthomas@inmerge.com",
+            //        SupportEmail = "support@inmerge.com"
+
+            //    }
+            //    );
+
+            //context.Tracks.AddOrUpdate(
+            //    t => t.Title,
+            //    new Track
+            //    {
+            //        Title = "Oral Presentations",
+            //        Type = 1,
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01")
+            //    },
+            //    new Track
+            //    {
+            //        Title = "Poster Presentations",
+            //        Type = 2,
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01")
+
+            //    },
+            //    new Track
+            //    { 
+            //        Title = "Keynote and Invited",
+            //        Type = 3,
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01")
+            //    });
+
+            //context.Sessions.AddOrUpdate(
+            //    s => s.SessionTitle,
+            //    new Session
+            //    {
+            //        SessionTitle = "Asp.net MVC Basics",
+            //        Code = "O01",
+            //        Contact = "Tom Thomas",
+            //        ContactEmail = "tom.thomas@inmerge.com",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01"),
+            //        Location = "Santa Fe",
+            //        Phase = 1
+            //    },
+            //    new Session
+            //    {
+            //        SessionTitle = "Entity Framework 6.0 Code First",
+            //        Code = "O02",
+            //        Contact = "Tom Thomas",
+            //        ContactEmail = "tom.thomas@inmerge.com",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01"),
+            //        Location = "Santa Fe",
+            //        Phase = 1
+            //    },
+            //    new Session
+            //    {
+            //        SessionTitle = "Bootstrap 3.0 Changes",
+            //        Code = "P01",
+            //        Contact = "Will Thomas",
+            //        ContactEmail = "will.thomas@inmerge.com",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01"),
+            //        Location = "Broomfield",
+            //        Phase = 2
+            //    },
+            //    new Session
+            //    {
+            //        SessionTitle = "Advanced CSS",
+            //        Code = "P02",
+            //        Contact = "Will Thomas",
+            //        ContactEmail = "will.thomas@inmerge.com",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01"),
+            //        Location = "Broomfield",
+            //        Phase = 1
+            //    },
+            //    new Session
+            //    {
+            //        SessionTitle = "JQuery Fundamentals",
+            //        Code = "K01",
+            //        Contact = "Carol Thomas",
+            //        ContactEmail = "carol.thomas@inmerge.com",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01"),
+            //        Location = "Malibu",
+            //        Phase = 1
+            //    },
+            //    new Session
+            //    {
+            //        SessionTitle = "Advanced Javascript Databinding",
+            //        Code = "K02",
+            //        Contact = "Barbara Thomas",
+            //        ContactEmail = "barbara.thomas@inmerge.com",
+            //        StartDate = DateTime.Parse("2013-09-01"),
+            //        EndDate = DateTime.Parse("2013-09-01"),
+            //        Location = "Malibu",
+            //        Phase = 2
+            //    });
+
+            //context.InmAbstracts.AddOrUpdate(
+            //    a => a.Title,
+            //    new InmAbstract
+            //    {
+            //        Title = "My First MVC app",
+            //        Introduction = "I've studied for a long time...",
+            //        Methods = "I worked really hard...",
+            //        Results = "And this is what I learned...",
+            //        Lognumber = 1,
+            //        PreferredTrackType = 1,
+            //        Status = 1,
+            //        AssignedSlot = "1001",
+            //        NovelAspect = "It's interesting...",
+            //        IsLocked = false,
+            //        SubmittedDate = DateTime.Parse("2013-04-04"),
+            //        PresentationDate = DateTime.Parse("2013-09-01"),
+            //        ModifiedDate = DateTime.Parse("2013-09-01"),
+            //        PublishDate = DateTime.Parse("2013-09-01"),
+            //        UploadedFile = "myfile.pdf",
+            //        UploadedFileStatus = 1
+            //    },
+            //    new InmAbstract
+            //    {
+            //        Title = "My Second MVC app",
+            //        Introduction = "I've studied for a long time...",
+            //        Methods = "I worked really hard...",
+            //        Results = "And this is what I learned...",
+            //        Lognumber = 2,
+            //        PreferredTrackType = 1,
+            //        Status = 1,
+            //        AssignedSlot = "1002",
+            //        NovelAspect = "It's interesting...",
+            //        IsLocked = false,
+            //        SubmittedDate = DateTime.Parse("2013-04-04"),
+            //        PresentationDate = DateTime.Parse("2013-09-01"),
+            //        ModifiedDate = DateTime.Parse("2013-09-01"),
+            //        PublishDate = DateTime.Parse("2013-09-01"),
+            //        UploadedFile = "myfile.pdf",
+            //        UploadedFileStatus = 1
+            //    },
+            //    new InmAbstract
+            //    {
+            //        Title = "My Third MVC app",
+            //        Introduction = "I've studied for a long time...",
+            //        Methods = "I worked really hard...",
+            //        Results = "And this is what I learned...",
+            //        Lognumber = 3,
+            //        PreferredTrackType = 2,
+            //        Status = 2,
+            //        AssignedSlot = "1003",
+            //        NovelAspect = "It's interesting...",
+            //        IsLocked = false,
+            //        SubmittedDate = DateTime.Parse("2013-03-02"),
+            //        PresentationDate = DateTime.Parse("2013-09-01"),
+            //        ModifiedDate = DateTime.Parse("2013-09-01"),
+            //        PublishDate = DateTime.Parse("2013-09-01"),
+            //        UploadedFile = "myfile.pdf",
+            //        UploadedFileStatus = 2
+            //    },
+            //    new InmAbstract
+            //    {
+            //        Title = "My Forth MVC app",
+            //        Introduction = "I've studied for a long time...",
+            //        Methods = "I worked really hard...",
+            //        Results = "And this is what I learned...",
+            //        Lognumber = 4,
+            //        PreferredTrackType = 1,
+            //        Status = 1,
+            //        AssignedSlot = "1004",
+            //        NovelAspect = "It's interesting...",
+            //        IsLocked = false,
+            //        SubmittedDate = DateTime.Parse("2013-09-05"),
+            //        PresentationDate = DateTime.Parse("2013-09-01"),
+            //        ModifiedDate = DateTime.Parse("2013-09-01"),
+            //        PublishDate = DateTime.Parse("2013-09-01"),
+            //        UploadedFile = "myfile.pdf",
+            //        UploadedFileStatus = 1
+            //    });
+
             //context.Affiliations.People.AddOrUpdate(
             //  p => p.FullName,
             //  new Person { FullName = "Andrew Peters" },
@@ -26,10 +255,10 @@ namespace InmNow.Repository.Migrations
             //);
             
             
-//            var users = new List<User>
+//            var users = new List<InmUser>
 //            {
 //                //3 test users
-//                new User
+//                new InmUser
 //                {
 //                    FirstName = "William",
 //                    LastName = "Thomas",
@@ -41,7 +270,7 @@ namespace InmNow.Repository.Migrations
 //                    Abstracts = new List<Abstract>(),
 //                    Affiliations = new List<Affiliation>()
 //                },
-//                new User
+//                new InmUser
 //                {
 //                    FirstName = "Tom",
 //                    LastName = "Thomas",
@@ -53,7 +282,7 @@ namespace InmNow.Repository.Migrations
 //                    Abstracts = new List<Abstract>(),
 //                    Affiliations = new List<Affiliation>()
 //                },
-//                new User
+//                new InmUser
 //                {
 //                    FirstName = "Carol",
 //                    LastName = "Thomas",
@@ -67,7 +296,7 @@ namespace InmNow.Repository.Migrations
 //                }
 //            };
 
-//            foreach (User userToAdd in users)
+//            foreach (InmUser userToAdd in users)
 //            {
 //                adminresult = UserManager.Create(userToAdd, password);
 //                if (adminresult.Succeeded)
@@ -366,7 +595,7 @@ namespace InmNow.Repository.Migrations
 //                    EntrySessions = new List<Session>(),
 //                    Options = new List<AbstractOption>(),
 //                    Session = sessions.FirstOrDefault(d => d.SessionId == 1),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new Abstract
 //                {
@@ -390,7 +619,7 @@ namespace InmNow.Repository.Migrations
 //                    EntrySessions = new List<Session>(),
 //                    Options = new List<AbstractOption>(),
 //                    Session = sessions.FirstOrDefault(d => d.SessionId == 2),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new Abstract
 //                {
@@ -414,7 +643,7 @@ namespace InmNow.Repository.Migrations
 //                    EntrySessions = new List<Session>(),
 //                    Options = new List<AbstractOption>(),
 //                    Session = sessions.FirstOrDefault(d => d.SessionId == 3),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new Abstract
 //                {
@@ -438,7 +667,7 @@ namespace InmNow.Repository.Migrations
 //                    EntrySessions = new List<Session>(),
 //                    Options = new List<AbstractOption>(),
 //                    Session = sessions.FirstOrDefault(d => d.SessionId == 4),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                }
 //            };
 
@@ -465,7 +694,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 1,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 1),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -477,7 +706,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 2,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 1),
-//                    User = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -489,7 +718,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 3,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 1),
-//                    User = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
 //                },
 //                //Abstract 2
 //                new AbstractUser
@@ -502,7 +731,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 2,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 2),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -514,7 +743,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 1,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 2),
-//                    User = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -526,7 +755,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 3,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 2),
-//                    User = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
 //                },
 //                //Abstract 3
 //                new AbstractUser
@@ -539,7 +768,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 3,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 3),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -551,7 +780,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 2,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 3),
-//                    User = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -563,7 +792,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 1,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 3),
-//                    User = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
 //                },
 //                //Abstract 4
 //                new AbstractUser
@@ -576,7 +805,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 1,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 4),
-//                    User = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "will.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -588,7 +817,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 2,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 4),
-//                    User = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "tom.thomas@inmerge.com")
 //                },
 //                new AbstractUser
 //                {
@@ -600,7 +829,7 @@ namespace InmNow.Repository.Migrations
 //                    DisplayOrder = 3,
 //                    hasAccount = true,
 //                    Abstract = abstracts.FirstOrDefault(d => d.AbstractId == 4),
-//                    User = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
+//                    InmUser = users.FirstOrDefault(d => d.Email == "carol.thomas@inmerge.com")
 //                },
 //            };
 

@@ -705,7 +705,7 @@
           <xs:element name="dbHost" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="dbPassword" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="dbProvider" minOccurs="0" maxOccurs="1" type="xs:string" />
-          <xs:element name="dbUserName" minOccurs="0" maxOccurs="1" type="Layout" />
+          <xs:element name="dbInmUserName" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="keepConnection" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="useTransactions" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="installConnectionString" minOccurs="0" maxOccurs="1" type="Layout" />
@@ -722,7 +722,7 @@
         </xs:attribute>
         <xs:attribute name="connectionString" type="SimpleLayoutAttribute">
           <xs:annotation>
-            <xs:documentation>Connection string. When provided, it overrides the values specified in DBHost, DBUserName, DBPassword, DBDatabase.</xs:documentation>
+            <xs:documentation>Connection string. When provided, it overrides the values specified in DBHost, DBInmUserName, DBPassword, DBDatabase.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="connectionStringName" type="xs:string">
@@ -750,9 +750,9 @@
             <xs:documentation>Name of the database provider.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="dbUserName" type="SimpleLayoutAttribute">
+        <xs:attribute name="dbInmUserName" type="SimpleLayoutAttribute">
           <xs:annotation>
-            <xs:documentation>Database user name. If the ConnectionString is not provided this value will be used to construct the "User ID=" part of the connection string.</xs:documentation>
+            <xs:documentation>Database user name. If the ConnectionString is not provided this value will be used to construct the "InmUser ID=" part of the connection string.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="keepConnection" type="xs:boolean">
@@ -1301,7 +1301,7 @@
         </xs:attribute>
         <xs:attribute name="password" type="xs:string">
           <xs:annotation>
-            <xs:documentation>User account password.</xs:documentation>
+            <xs:documentation>InmUser account password.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="revertToSelf" type="xs:boolean">
@@ -1311,7 +1311,7 @@
         </xs:attribute>
         <xs:attribute name="userName" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Username to change context to.</xs:documentation>
+            <xs:documentation>InmUsername to change context to.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
@@ -1429,7 +1429,7 @@
           <xs:element name="timeout" minOccurs="0" maxOccurs="1" type="xs:integer" />
           <xs:element name="smtpServer" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="smtpAuthentication" minOccurs="0" maxOccurs="1" type="NLog.Targets.SmtpAuthenticationMode" />
-          <xs:element name="smtpUserName" minOccurs="0" maxOccurs="1" type="Layout" />
+          <xs:element name="smtpInmUserName" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="smtpPassword" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="enableSsl" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="smtpPort" minOccurs="0" maxOccurs="1" type="xs:integer" />
@@ -1525,9 +1525,9 @@
             <xs:documentation>SMTP Authentication mode.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="smtpUserName" type="SimpleLayoutAttribute">
+        <xs:attribute name="smtpInmUserName" type="SimpleLayoutAttribute">
           <xs:annotation>
-            <xs:documentation>Username used to connect to SMTP server (used when SmtpAuthentication is set to "basic").</xs:documentation>
+            <xs:documentation>InmUsername used to connect to SMTP server (used when SmtpAuthentication is set to "basic").</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="smtpPassword" type="SimpleLayoutAttribute">
